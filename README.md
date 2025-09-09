@@ -17,8 +17,9 @@ Este projeto foi desenvolvido como parte do desafio técnico para a posição de
 │   └── ImdbMovieAnalysis.ipynb
 ├── src/
 │   └── ImdbAnalysis.py
+├── AnaliseCompleta.pdf
+├── app.py
 ├── requirements.txt
-├── run_project.py
 └── README.md
 ```
 
@@ -139,10 +140,24 @@ As principais bibliotecas utilizadas são:
 - **Real:** 9.3
 - **Diferença:** 0.57
 
-## Arquivos Gerados
+## Respostas às Perguntas de Negócio
 
-1. **ImdbRatingModel.pkl:** Modelo treinado para predições
-2. **LabelEncoders.pkl:** Encoders para variáveis categóricas
-3. **ImdbMovieAnalysis.ipynb:** Notebook completo com análises
-4. **ImdbAnalysis.py:** Código modularizado para produção
-5. **app.py:** Script para execução automatizada
+### 1. Qual filme você recomendaria para uma pessoa que você não conhece?
+Após analisar as avaliações dos filmes, "The Godfather (1972)" se destaca como o filme com maior nota IMDB. Por isso, ele é recomendado para qualquer público, sendo uma escolha segura.
+> **Insight:** Filmes com alta nota tendem a ser clássicos reconhecidos, reforçando a importância de considerar avaliações agregadas na recomendação.
+
+### 2. Quais são os principais fatores que estão relacionados com alta expectativa de faturamento de um filme?
+A análise de correlação mostra que o número de votos (popularidade), Meta Score (crítica especializada), gêneros como Action, Adventure, Sci-Fi e certificação adequada ao público-alvo são os principais fatores associados à alta bilheteira.
+> **Insight:** Investir em gêneros populares e buscar boas avaliações da crítica pode aumentar a expectativa de receita.
+
+### 3. Quais insights podem ser tirados com a coluna Overview? É possível inferir o gênero do filme a partir dessa coluna?
+A análise textual revela que sinopses mais longas estão associadas a notas mais altas e que o sentimento positivo nas descrições é relevante. Além disso, palavras-chave presentes na Overview permitem inferir o gênero do filme, como mostrado na análise de frequência de termos.
+> **Insight:** O texto da sinopse é bom meio para entender o perfil do filme e pode ser usado para classificação de gênero e análise de sentimento.
+
+### 4. Como foi feita a previsão da nota do IMDB? Quais variáveis e modelo foram utilizados?
+A previsão da nota IMDB foi realizada utilizando variáveis numéricas, categóricas e derivadas, como idade do filme, sentimento da sinopse, log de votos e receita. O problema é de regressão, pois a nota é contínua. O modelo Random Forest apresentou o melhor desempenho (maior R² e estabilidade na validação cruzada). A métrica escolhida foi o R², pois mede o quanto da variabilidade dos dados é explicada pelo modelo.
+> **Insight:** A combinação de diferentes tipos de variáveis e o uso de modelos como o Random Forest são ótimos para entender a complexidade dos dados de filmes.
+
+### 5. Qual seria a nota do IMDB para o filme exemplo fornecido?
+Para "The Shawshank Redemption", o modelo previu nota 8.73, enquanto a nota real é 9.3. Isso mostra que o modelo é capaz de se aproximar da avaliação real, mas ainda pode haver diferenças devido a fatores não capturados nos dados.
+> **Insight:** A predição próxima da nota real reforça a utilidade do modelo para estimar avaliações de novos filmes, auxiliando decisões do estúdio.
