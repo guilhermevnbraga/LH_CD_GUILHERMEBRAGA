@@ -155,7 +155,7 @@ A análise textual revela que sinopses mais longas estão associadas a notas mai
 > **Insight:** O texto da sinopse é bom meio para entender o perfil do filme e pode ser usado para classificação de gênero e análise de sentimento.
 
 ### 4. Como foi feita a previsão da nota do IMDB? Quais variáveis e modelo foram utilizados?
-A previsão da nota IMDB foi realizada utilizando variáveis numéricas, categóricas e derivadas, como idade do filme, sentimento da sinopse, log de votos e receita. O problema é de regressão, pois a nota é contínua. O modelo Random Forest apresentou o melhor desempenho (maior R² e estabilidade na validação cruzada). A métrica escolhida foi o R², pois mede o quanto da variabilidade dos dados é explicada pelo modelo.
+A previsão da nota IMDB foi realizada utilizando variáveis numéricas, categóricas e derivadas, como idade do filme, sentimento da sinopse, log de votos e receita. O problema é de regressão, pois a nota é contínua. Foram testados os modelos random forest, gradient boosting, XGBoost, LightGBM e regressão linear/ridge/lasso. O modelo Random Forest apresentou o melhor desempenho (maior R² e estabilidade na validação cruzada). A métrica escolhida foi o R², pois mede o quanto da variabilidade dos dados é explicada pelo modelo.
 > **Insight:** A combinação de diferentes tipos de variáveis e o uso de modelos como o Random Forest são ótimos para entender a complexidade dos dados de filmes.
 
 ### 5. Qual seria a nota do IMDB para o filme exemplo fornecido?
